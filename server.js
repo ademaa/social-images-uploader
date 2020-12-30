@@ -1,7 +1,19 @@
 const express = require('express');
 const app = express();
+const connectDB = require('./config/db');
 
-app.get('',(req,res)=>res.send('home route'));
+//connect database
+connectDB();
+
+//initialize middleware
+app.use(express.json({extended:false}));
+
+app.get('/',(req,res)=>res.send("API run successfully"));
+
+//get all routes
+app.use('/api/user',require('./routes/api/user'));
+app.use('/api/posts',require('./routes/api/posts'));
+app.use('/api/auth',require('./routes/api/auth'));
 
 
 //listen to port
