@@ -17,6 +17,16 @@ const userSchema = new schema({
     },
     avatar:{
         type:String
+    },
+    notifications:{
+        likes:{
+            type:schema.Types.ObjectId,
+            ref:'posts'
+        },
+        comments:{
+            type:schema.Types.ObjectId,
+            ref:'posts'
+        }
     }
 });
 module.exports = User = mongoose.model('user',userSchema);

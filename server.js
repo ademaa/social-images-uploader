@@ -14,7 +14,7 @@ app.get('/',(req,res)=>res.send("API run successfully"));
 app.use('/api/user',require('./routes/api/user'));
 app.use('/api/posts',require('./routes/api/posts'));
 app.use('/api/auth',require('./routes/api/auth'));
-
+app.use('/api/profile',require('./routes/api/profile'));
 
 //listen to port
 const port = process.env.PORT || 3000;
